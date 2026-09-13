@@ -4,5 +4,11 @@ GREENHOUSE_COMPANIES = {
     "airbnb": "Airbnb",
     "datadog": "Datadog",
     "cloudflare": "Cloudflare",
-    
+
+}
+
+LEVER_COMPANIES = {
+    "palantir": "Palantir",
+    "spotify": "Spotify",
+
 }

@@ -29,14 +29,12 @@ def deduplicate_jobs(jobs):
     return unique_jobs
 
 
-if __name__ == "__main__":
-
-    input_file = "data/greenhouse_jobs.json"
-    output_file = "data/greenhouse_jobs_deduplicated.json"
+def process_file(input_file, output_file):
 
     with open(input_file, "r", encoding="utf-8") as file:
         jobs = json.load(file)
 
+    print(f"\nProcessing: {input_file}")
     print(f"Jobs before deduplication: {len(jobs)}")
 
     unique_jobs = deduplicate_jobs(jobs)
@@ -47,4 +45,17 @@ if __name__ == "__main__":
     with open(output_file, "w", encoding="utf-8") as file:
         json.dump(unique_jobs, file, indent=4, ensure_ascii=False)
 
-    print(f"\nSaved deduplicated jobs to: {output_file}")
+    print(f"Saved to: {output_file}")
+
+
+if __name__ == "__main__":
+
+    process_file(
+        "data/greenhouse_jobs.json",
+        "data/greenhouse_jobs_deduplicated.json"
+    )
+
+    process_file(
+        "data/lever_jobs.json",
+        "data/lever_jobs_deduplicated.json"
+    )
