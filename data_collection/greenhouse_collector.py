@@ -1,7 +1,11 @@
+import json
+import os
 import requests
+from config import GREENHOUSE_COMPANIES
 
 
 def collect_greenhouse_jobs(company, company_name=None):
+
     url = f"https://boards-api.greenhouse.io/v1/boards/{company}/jobs"
 
     params = {
@@ -18,6 +22,7 @@ def collect_greenhouse_jobs(company, company_name=None):
     normalized_jobs = []
 
     for job in jobs:
+
         location = job.get("location", {}).get("name")
 
         departments = job.get("departments", [])
@@ -47,20 +52,39 @@ def collect_greenhouse_jobs(company, company_name=None):
 
 if __name__ == "__main__":
 
-    company = "vercel"
+    all_jobs = []
 
-    jobs = collect_greenhouse_jobs(
-        company,
-        company_name="Vercel"
-    )
+    for company, company_name in GREENHOUSE_COMPANIES.items():
 
-    print(f"Total jobs collected: {len(jobs)}")
+        print(f"\nCollecting jobs from {company_name}...")
 
-    for job in jobs[:5]:
-        print("\n-------------------------")
-        print("Company:", job["company_name"])
-        print("Title:", job["title"])
-        print("Location:", job["location"])
-        print("Department:", job["department"])
-        print("URL:", job["apply_url"])
-        print("Source:", job["source"])
+        try:
+            jobs = collect_greenhouse_jobs(
+                company,
+                company_name
+            )
+
+            print(f"Collected {len(jobs)} jobs")
+
+            all_jobs.extend(jobs)
+
+        except requests.exceptions.HTTPError as e:
+
+            print(f"Failed to collect {company_name}: {e}")
+
+        except Exception as e:
+
+            print(f"Error collecting {company_name}: {e}")
+
+
+    print("\n================================")
+    print(f"TOTAL JOBS COLLECTED: {len(all_jobs)}")
+    print("================================")
+    os.makedirs("data", exist_ok=True)
+
+    output_file = "data/greenhouse_jobs.json"
+
+    with open(output_file, "w", encoding="utf-8") as file:
+        json.dump(all_jobs, file, indent=4, ensure_ascii=False)
+
+    print(f"\nSaved jobs to: {output_file}")
