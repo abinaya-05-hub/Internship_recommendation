@@ -2,10 +2,15 @@ import json
 
 
 def create_job_key(job):
-    """
-    Creates a unique key using company, title and location.
-    """
 
+    source = (job.get("source") or "").strip().lower()
+    source_job_id = (job.get("source_job_id") or "").strip()
+
+    # Primary key: source + source job ID
+    if source_job_id:
+        return f"{source}|{source_job_id}"
+
+    # Fallback if source_job_id is missing
     company = (job.get("company_name") or "").strip().lower()
     title = (job.get("title") or "").strip().lower()
     location = (job.get("location") or "").strip().lower()
@@ -43,7 +48,12 @@ def process_file(input_file, output_file):
     print(f"Duplicates removed: {len(jobs) - len(unique_jobs)}")
 
     with open(output_file, "w", encoding="utf-8") as file:
-        json.dump(unique_jobs, file, indent=4, ensure_ascii=False)
+        json.dump(
+            unique_jobs,
+            file,
+            indent=4,
+            ensure_ascii=False
+        )
 
     print(f"Saved to: {output_file}")
 
@@ -58,4 +68,9 @@ if __name__ == "__main__":
     process_file(
         "data/lever_jobs.json",
         "data/lever_jobs_deduplicated.json"
+    )
+
+    process_file(
+        "data/workday_jobs.json",
+        "data/workday_jobs_deduplicated.json"
     )
