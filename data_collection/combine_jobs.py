@@ -4,6 +4,7 @@ import os
 
 INPUT_FILES = [
     "data/normalized_jobs.json",
+    "data/normalized_internships.json",
     "data/greenhouse_jobs_deduplicated.json",
     "data/lever_jobs_deduplicated.json",
     "data/workday_jobs_deduplicated.json"
