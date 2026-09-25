@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>SmartIntern</h2>
+
+    <a href="{{ url_for('logout') }}">
+        Logout
+    </a>
+
+</nav>
+
+
+<div class="dashboard">
+
+    <h1>Welcome, {{ name }} 👋</h1>
+
+    <p>
+        Find internships that match your skills.
+    </p>
+
+
+    <div class="upload-box">
+
+        <h2>📄 Upload Your Resume</h2>
+
+        <p>
+            Upload your resume in PDF format
+            to get AI-powered internship recommendations.
+        </p>
+
+        <input type="file" accept=".pdf">
+
+        <br><br>
+
+        <button>
+            Upload Resume
+        </button>
+
+    </div>
+
+
+    <div class="recommendations">
+
+        <h2>Recommended Internships</h2>
+
+        <p>
+            Upload your resume to get personalized
+            internship recommendations.
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

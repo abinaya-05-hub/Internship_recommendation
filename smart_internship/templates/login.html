@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SmartIntern - Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='auth.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-left">
+
+            <div class="left-content">
+
+                <h1>
+                    Welcome to<br>
+                    <span>SmartIntern</span>
+                </h1>
+
+                <p>
+                    Find the right internship based on
+                    your skills, interests and career goals.
+                </p>
+
+            </div>
+
+
+            <!-- Decorative shapes -->
+
+            <div class="shape shape-one"></div>
+
+            <div class="shape shape-two"></div>
+
+            <div class="shape shape-three"></div>
+
+            <div class="shape shape-four"></div>
+
+            <div class="shape shape-five"></div>
+
+            <div class="shape shape-six"></div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="auth-right">
+
+            <div class="form-container">
+
+                <h2>
+                    USER LOGIN
+                </h2>
+
+
+                <form method="POST"
+                      action="{{ url_for('login') }}">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="loginPassword"
+                            placeholder="Password"
+                            required
+                        >
+
+                        <span
+                            class="password-eye"
+                            onclick="togglePassword()">
+
+                            👁
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="login-options">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                name="remember">
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+
+                        <a href="#">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="auth-button">
+
+                        LOGIN
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- CREATE ACCOUNT -->
+
+                <p class="account-text">
+
+                    Don't have an account?
+
+                    <a href="{{ url_for('register') }}">
+                        Create Account
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("loginPassword");
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+    } else {
+
+        password.type = "password";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>

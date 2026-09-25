@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background: #292b32;
+}
+
+
+/* =====================================
+   MAIN AUTH PAGE
+===================================== */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+}
+
+
+.auth-container {
+    width: 1000px;
+
+    height: 560px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    background: white;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================
+   LEFT SIDE
+===================================== */
+
+.auth-left {
+    width: 52%;
+
+    height: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #554ff0 0%,
+            #7050e8 35%,
+            #b04ed4 70%,
+            #f2698b 100%
+        );
+}
+
+
+/* Left content */
+
+.left-content {
+    position: relative;
+
+    z-index: 10;
+
+    padding: 90px 55px;
+
+    color: white;
+}
+
+
+.left-content h1 {
+    font-size: 40px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+
+.left-content p {
+    width: 390px;
+
+    max-width: 100%;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* =====================================
+   DECORATIVE SHAPES
+===================================== */
+
+.shape {
+    position: absolute;
+
+    z-index: 2;
+
+    opacity: 0.8;
+
+    transform: rotate(-45deg);
+
+    border-radius: 30px;
+}
+
+
+.shape-one {
+    width: 170px;
+
+    height: 42px;
+
+    bottom: 70px;
+
+    left: -35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8b7c,
+            #ffb45d
+        );
+}
+
+
+.shape-two {
+    width: 120px;
+
+    height: 30px;
+
+    bottom: 125px;
+
+    left: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9477,
+            #ffbd5c
+        );
+}
+
+
+.shape-three {
+    width: 150px;
+
+    height: 30px;
+
+    bottom: 25px;
+
+    left: 145px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8a82,
+            #ffb55c
+        );
+}
+
+
+.shape-four {
+    width: 90px;
+
+    height: 22px;
+
+    bottom: 120px;
+
+    left: 225px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8d7f,
+            #ffb65c
+        );
+}
+
+
+.shape-five {
+    width: 150px;
+
+    height: 42px;
+
+    bottom: 60px;
+
+    left: 330px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9970,
+            #ffb858
+        );
+}
+
+
+.shape-six {
+    width: 100px;
+
+    height: 25px;
+
+    bottom: 15px;
+
+    left: 280px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8d80,
+            #ffb05e
+        );
+}
+
+
+/* Background circle */
+
+.auth-left::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 100, 150, 0.25);
+
+    top: 55px;
+
+    right: 45px;
+
+    z-index: 1;
+}
+
+
+/* =====================================
+   RIGHT SIDE
+===================================== */
+
+.auth-right {
+    width: 48%;
+
+    height: 100%;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.form-container {
+    width: 310px;
+
+    text-align: center;
+}
+
+
+/* Heading */
+
+.form-container h2 {
+    color: #6750df;
+
+    font-size: 17px;
+
+    letter-spacing: 0.3px;
+
+    margin-bottom: 28px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================
+   INPUT BOX
+===================================== */
+
+.input-box {
+    width: 100%;
+
+    height: 42px;
+
+    position: relative;
+
+    margin-bottom: 14px;
+}
+
+
+.input-box input {
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 25px;
+
+    background: #eeeafd;
+
+    padding:
+        0 42px 0 45px;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+
+.input-box input::placeholder {
+    color: #a09abf;
+}
+
+
+.input-box input:focus {
+    box-shadow:
+        0 0 0 2px rgba(103, 80, 223, 0.2);
+}
+
+
+/* Icons */
+
+.input-icon {
+    position: absolute;
+
+    left: 17px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 13px;
+
+    color: #8176c5;
+
+    z-index: 2;
+}
+
+
+/* Password eye */
+
+.password-eye {
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    opacity: 0.6;
+}
+
+
+/* =====================================
+   LOGIN OPTIONS
+===================================== */
+
+.login-options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 3px;
+
+    margin-bottom: 25px;
+
+    font-size: 9px;
+
+    color: #999;
+}
+
+
+.login-options label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.login-options input {
+    accent-color: #7650df;
+}
+
+
+.login-options a {
+    color: #aaa;
+
+    text-decoration: none;
+}
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+.auth-button {
+    width: 125px;
+
+    height: 39px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d75cb8,
+            #7650df
+        );
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.auth-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(100, 70, 200, 0.25);
+}
+
+
+/* =====================================
+   ACCOUNT LINK
+===================================== */
+
+.account-text {
+    margin-top: 28px;
+
+    font-size: 11px;
+
+    color: #999;
+}
+
+
+.account-text a {
+    color: #7650df;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    margin-left: 4px;
+}
+
+
+.account-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================
+   REGISTER PAGE
+===================================== */
+
+.register-form h2 {
+    margin-bottom: 23px;
+}
+
+
+.register-form .input-box {
+    margin-bottom: 11px;
+}
+
+
+.register-form .auth-button {
+    width: 170px;
+
+    margin-top: 5px;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+
+    .auth-container {
+        width: 700px;
+
+        height: 500px;
+    }
+
+    .left-content {
+        padding: 70px 40px;
+    }
+
+    .left-content h1 {
+        font-size: 30px;
+    }
+
+    .form-container {
+        width: 260px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .auth-page {
+        padding: 15px;
+    }
+
+    .auth-container {
+        width: 100%;
+
+        max-width: 420px;
+
+        height: auto;
+
+        min-height: 600px;
+    }
+
+    .auth-left {
+        display: none;
+    }
+
+    .auth-right {
+        width: 100%;
+
+        min-height: 600px;
+    }
+
+    .form-container {
+        width: 80%;
+
+        max-width: 310px;
+    }
+}

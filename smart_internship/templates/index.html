@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SmartIntern</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="home-page">
+
+    <div class="home-content">
+
+        <div class="home-icon">
+            🎓
+        </div>
+
+        <h1>
+            SmartIntern
+        </h1>
+
+        <h2>
+            AI-Based Internship Recommendation System
+        </h2>
+
+        <p>
+            Upload your resume and discover internships
+            that match your skills, interests and career goals.
+        </p>
+
+        <div class="home-buttons">
+
+            <a href="{{ url_for('login') }}"
+               class="home-button login-button">
+
+                Login <span>→</span>
+
+            </a>
+
+
+            <a href="{{ url_for('register') }}"
+               class="home-button register-button">
+
+                Create Account <span>→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
